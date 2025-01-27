@@ -1,0 +1,62 @@
+@mixin flex-dir-justify-align ($direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+
+
+.navbar {
+    @include flex-dir-justify-align(row, space-between, center);
+    padding: 2rem 3rem;
+    // border-bottom: 0.1rem solid rgb(209, 209, 209);
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+    
+    .logo {
+        @include flex-dir-justify-align(row, center, center);
+        
+        a {
+            @include flex-dir-justify-align(row, center, center);
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+            font-size: 1.6rem;
+            font-weight: 500;
+
+            img {
+                width: 3rem;
+                margin: 1rem;
+            }
+        }
+    }
+
+    .menu {
+        
+        ul {
+            @include flex-dir-justify-align(row, space-between, center);
+            height: 4rem;
+            list-style: none;
+            
+            
+            li {
+
+                a {
+                    font-size: 1.2rem;
+                    text-decoration: none;
+                    color: rgb(0, 0, 0);
+                    margin: 0.5rem;
+                    padding: 1rem 2rem;
+                    border-radius: 0.5rem;
+                    border: 0.2rem solid rgba(0, 0, 0, 0.5);
+                }
+            }
+
+            .signup {
+                a {
+                    background-color: black;
+                    color: white;
+                }
+            }
+        }
+    }
+}

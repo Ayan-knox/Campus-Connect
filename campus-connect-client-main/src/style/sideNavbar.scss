@@ -1,0 +1,67 @@
+@mixin flex-dir-justify-align($direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: 'Rubik', sans-serif;
+}
+
+
+.left-navbar {
+    padding: 1rem;
+    @include flex-dir-justify-align(column, space-between, 'unset');
+
+    .navbar-uperside,
+    .navbar-downside {
+        @include flex-dir-justify-align(column, center, center);
+        width: 5rem;
+
+        .logo > a > img {
+            width: 3rem;
+        }
+
+        div {
+            @include flex-dir-justify-align(column, center, center);
+            margin-bottom: 0.5rem;
+
+            a {
+                border-radius: 0.5rem;
+                padding: 1rem;
+
+                img {
+                    width: 2.4rem;
+                    height: auto; // Maintain aspect ratio
+                    transition: transform 0.3s; // Use transform for smoother scaling
+                }
+
+                &:hover {
+                    background-color: aliceblue;
+
+                    img {
+                        transform: scale(1.1); // Increase the size by 10%
+                    }
+                }
+            }
+        }
+
+    }
+
+    .navbar-uperside {
+        .logo {
+            margin: 1rem 0;
+
+            a:hover {
+                background-color: unset;
+
+                img {
+                    transform: unset;
+                }
+            }
+        }
+
+    }
+}

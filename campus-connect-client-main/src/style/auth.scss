@@ -1,0 +1,324 @@
+@mixin flex-dir-justify-align ($direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: 'Rubik', sans-serif;
+}
+
+
+
+.auth-container {
+
+    @include flex-dir-justify-align(row, unset, center);
+    height: max(600px, 100vh);
+
+    .left {
+        width: max(70%, 55rem);
+        background-color: #ffffff;
+        height: inherit;
+        padding: 2rem 5rem;
+
+        .logo img {
+            height: 3rem;
+            font-size: 3rem;
+        }
+
+        .form-container {
+            padding: 3rem 5rem;
+
+            h2 {
+                font-size: 2.2rem;
+                font-weight: 600;
+            }
+
+            p {
+                padding-top: 0.3rem;
+                font-size: 1.2rem;
+                font-weight: 500;
+                line-height: 3rem;
+            }
+
+            .switch-user {
+                @include flex-dir-justify-align(row, unset, center);
+                border-radius: 0.8rem;
+                overflow: hidden;
+                width: fit-content;
+
+                div {
+                    display: inline-block;
+                    background-color: #f6f6f6;
+                    color: rgb(0, 0, 0);
+                    font-size: 1.2rem;
+                    line-height: 4rem;
+                    padding: 0 8rem;
+                    text-decoration: none;
+                    cursor: pointer;
+                }
+
+                .active {
+                    background-color: #222;
+                    color: white;
+                }
+
+            }
+
+            form {
+
+
+                .input-field {
+                    width: max(70%, 40rem);
+                    background-color: #ffffff;
+                    padding-top: 1.2rem;
+                    line-height: 2.5rem;
+                    position: relative;
+                    @include flex-dir-justify-align(column, center, unset);
+
+
+
+
+                    label {
+                        font-size: 1.1rem;
+                        color: #5b5b5b;
+                        width: fit-content;
+                    }
+
+
+                    input {
+                        height: 3.4rem;
+                        background: none;
+                        outline: none;
+                        font-size: 1.2rem;
+                        color: #333;
+                        border: 1px solid #0003;
+                        padding-left: 1rem;
+                        border-radius: 0.8rem;
+                    }
+
+                    input::placeholder {
+                        color: #aaa;
+                        font-weight: 400;
+                        font-size: 1.2rem;
+                    }
+
+                    .email {
+                        display: flex;
+
+                        input {
+                            flex: 1;
+                        }
+
+                        span {
+                            font-size: 1.2rem;
+                            font-weight: 400;
+                            align-self: center;
+                            margin-left: 1rem;
+
+                            input {
+                                width: 4.5rem;
+                            }
+                        }
+                    }
+
+                    .viewChanger {
+                        position: absolute;
+                        top: 1rem;
+                        right: 0;
+                        @include flex-dir-justify-align(row, space-between, center);
+                        cursor: pointer;
+
+                        img {
+                            width: 2rem;
+                        }
+                    }
+                }
+
+
+                .first-input-field {
+                    @include flex-dir-justify-align(row, space-between, center);
+                    gap: 20px; 
+
+                    &>div:first-child {
+                        @include flex-dir-justify-align(column, unset, unset);
+                        width: max(80%, 20rem);
+
+                        label {
+                            width: fit-content;
+                        }
+                    }
+
+                    &>div:last-child {
+                        @include flex-dir-justify-align(column, unset, unset);
+                        width: 10rem;
+
+                        label {
+                            width: fit-content;
+                        }
+                    }
+                }
+
+
+                .submit-button {
+                    @include flex-dir-justify-align(row, unset, unset);
+
+                    .button {
+                        background-color: #222;
+                        border-radius: 1rem;
+                        border-style: none;
+                        box-sizing: border-box;
+                        color: #fff;
+                        cursor: pointer;
+                        display: inline-block;
+                        font-family: "Farfetch Basis", "Helvetica Neue", Arial, sans-serif;
+                        font-size: 1.3rem;
+                        margin-top: 3rem;
+                        max-width: none;
+                        outline: none;
+                        overflow: hidden;
+                        padding: 1.2rem 3rem;
+                        position: relative;
+                        text-align: center;
+                        text-transform: none;
+                        user-select: none;
+                        -webkit-user-select: none;
+                        touch-action: manipulation;
+                    }
+
+                    .button:hover,
+                    .button:focus {
+                        opacity: .75;
+                    }
+
+
+                }
+
+                .submit-button>p {
+                    margin-top: 3.3rem;
+                    padding: 0 6rem;
+                }
+
+            }
+
+            .switch {
+                p {
+                    font-size: 1rem;
+                    font-weight: 500;
+
+                    a {
+                        text-decoration: none;
+                        color: #9F22FF;
+                    }
+                }
+            }
+
+        }
+
+    }
+
+    .right {
+        width: 30%;
+        overflow: hidden;
+        height: inherit;
+        @include flex-dir-justify-align(column, center, center);
+        object-fit: cover;
+
+        img {
+            height: 100%;
+        }
+    }
+
+
+}
+
+.otp-container {
+    width: fit-content;
+    padding: 5rem 2rem;
+    background: white;
+    text-align: center;
+
+    form {
+
+        .otp-input-container {
+            margin: auto;
+            width: auto;
+            display: flex;
+            justify-content: start;
+            gap: 10px;
+            padding: 40px;
+
+            input {
+                height: 40px;
+                width: 40px;
+                background-color: transparent;
+                border-radius: 4px;
+                border: 1px solid #2f8f1f;
+                background-color: white;
+                text-align: center;
+                outline: none;
+                font-size: 16px;
+
+                &::-webkit-outer-spin-button,
+                &::-webkit-inner-spin-button {
+                    -webkit-appearance: none;
+                    margin: 0;
+                }
+
+                /* Firefox */
+                &[type=number] {
+                    -moz-appearance: textfield;
+                }
+
+                &:focus {
+                    border-width: 2px;
+                    border-color: darken(#2f8f1f, 5%);
+                    font-size: 20px;
+                }
+            }
+        }
+
+        .otp-button {
+            background-color: #222;
+            border-radius: 1rem;
+            border-style: none;
+            box-sizing: border-box;
+            color: #fff;
+            cursor: pointer;
+            display: inline-block;
+            font-family: "Farfetch Basis", "Helvetica Neue", Arial, sans-serif;
+            font-size: 1.3rem;
+            max-width: none;
+            outline: none;
+            overflow: hidden;
+            padding: 1.2rem 3rem;
+            position: relative;
+            text-align: center;
+            text-transform: none;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            margin: 10px;
+        }
+
+        .otp-button:hover,
+        .otp-button:focus {
+            opacity: .75;
+        }
+    }
+}
+
+
+
+@media only screen and (min-width: 480px) {
+    .right {
+        display: none;
+    }
+
+    .left {
+        width: unset;
+    }
+
+}
